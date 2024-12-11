@@ -1,0 +1,252 @@
+.widget {
+    width: 33.3%;
+    @media (max-width: 860px) {
+        width: 100%;
+    }
+    &__header {
+        border-radius: 6px;
+        color: $white;
+        height: fit-content;
+        padding: 15px;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+        h2, p {
+            margin: 0;
+            padding: 0;
+        }
+        p {
+            font-size: 13px;
+            font-weight: 400;
+            margin-bottom: 4px;
+            @media (max-width: 350px) {
+                font-size: 10px;
+            }
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            @media (max-width: 350px) {
+                font-size: 15px;
+            }
+        }
+        &__text {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            &.green-text {
+                color: $green;
+            }
+        }
+    }
+    &__toolkit {
+        width: 12px;
+        height: 12px;
+        border: 2px solid $green;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $green;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: -3px;
+        right: -20px;
+        font-size: 12px;
+        cursor: pointer;
+        &:hover {
+            .widget__toolkit-message {
+                opacity: 1;
+                pointer-events: initial;
+            }
+        }
+    }
+    &__toolkit-message {
+        width: 248px;
+        height: 162px;
+        background-color: white;
+        position: absolute;
+        box-shadow: 0px 5px 30px rgb(0 0 0 / 0.2);
+        padding: 24px 16px;
+        z-index: 10;
+        top: 15px;
+        box-sizing: border-box;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease-in;
+        &::before {
+            content: "";
+            width: 100%;
+            height: 15px;
+            position: absolute;
+            top: -15px;
+            left: 0;
+        }
+        &__text {
+            text-align: center;
+            font-size: 14px;
+            line-height: 17px;
+            font-weight: 400;
+            color: $black !important;
+        }
+        &__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 12px;
+            a { 
+                text-decoration: none;
+                text-transform: none;
+                color: $green;
+                font-size: 14px;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    &__public-profile {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &__title {
+            position: relative;
+            display: flex;
+            width: fit-content;
+            p {
+                margin: 0;
+                color: $green;
+                font-size: 14px;
+                @media (max-width: 310px) {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+    &__badge-colour {
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        p {
+            color: $green;
+            margin: 0;
+            font-size: 14px;
+            @media (max-width: 310px) {
+                font-size: 11px;
+            }
+        }
+    }
+    &__colours {
+        display: flex;
+        gap: 4px;
+        &__colour {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            box-sizing: border-box;
+            &:hover {
+                opacity: 0.8;
+            }
+            &.active {
+                border: 2px solid $grayDarker;
+            }
+        }
+    }
+    &__activate-badge {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            color: $green;
+            margin: 0;
+            font-size: 14px;
+            @media (max-width: 310px) {
+                font-size: 11px;
+            }
+        }
+        &__button {
+            width: 40px;
+            height: 20px;
+            border: 1px solid $greenLight;
+            border-radius: 34px;
+            position: relative;
+            box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            &.active {
+                background-color: $green;
+                box-shadow: none;
+                .widget__activate-badge__button__inside {
+                    left: auto;
+                    right: -1px;
+                    transition: right 0.2s ease, left 0.2s ease;
+                }
+            }
+            &__inside {
+                width: 21px;
+                height: 21px;
+                border: 1px solid $yellowButton;
+                border-radius: 34px;
+                background-color: $white;
+                position: absolute;
+                left: -1px;
+                top: -1.2px;
+                transition: left 0.2s ease, right 0.2s ease;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -5px;
+                    left: -5px;
+                    right: -5px;
+                    bottom: -5px;
+                    border-radius: 50%;
+                    border: 5px solid transparent;
+                    opacity: 0.5;
+                    transition: border-color 0.3s ease;
+                }
+        
+                &:hover::before {
+                    border-color: $greenLight;
+                }
+            }
+        }
+    }
+    &__checkbox {
+        width: 14px;
+        height: 14px;
+        border: 2px solid $black;
+        border-radius: 5px;
+        position: relative;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        &.active {
+            background-color: $green;
+            position: relative;
+            &::after {
+                content: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 28 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.60557 19.6056L1.75 12.75C0.783502 11.7835 0.783502 10.2165 1.75 9.25C2.7165 8.2835 4.2835 8.2835 5.25 9.25L10.5 14.5L22.778 1.78351C23.7241 0.803605 25.2899 0.789871 26.253 1.75303C27.2138 2.71385 27.2029 4.275 26.2286 5.2222L11.4139 19.6253C10.6298 20.3877 9.37885 20.3788 8.60557 19.6056Z' fill='white' stroke='white'/%3E%3C/svg%3E");
+                position: absolute;
+                top: -2px;
+                left: 1px;
+                right: 0;
+            }
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            background-color: $greenLight;
+            opacity: 0;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+        }         
+        &:hover::before {
+            background-color: $greenLight;
+            opacity: 0.5;
+        }
+    }
+}
